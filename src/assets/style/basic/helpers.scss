@@ -1,0 +1,25 @@
+
+//text 
+.bold {
+    font-family: Noto-bold;
+}
+
+.semibold {
+    font-family: Noto-semibold;
+}
+
+.light {
+    font-family: Noto-light;
+}
+
+//flex
+.flex {
+    display: flex;
+    &.column {
+        flex-direction: column;
+    }
+
+    &.row {
+        flex-direction: row;
+    }
+}
