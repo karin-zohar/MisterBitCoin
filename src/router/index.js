@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import HomePage from '../views/HomePage.vue'
 import ContactIndex from '../views/ContactIndex.vue'
 
 const routerOptions = {
@@ -8,7 +8,7 @@ const routerOptions = {
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomePage
     },
     {
       path: '/about',

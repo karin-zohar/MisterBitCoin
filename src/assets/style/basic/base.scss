@@ -20,13 +20,19 @@ a {
     text-decoration: none;
     color: inherit;
 }
+ 
+p {
+    margin: 0;
+    padding: 0;
+}
 
 //design 
 
 html, body {
     font-size: 16px;
     font-family: Noto-regular;
-    background-color: $light-bgc;
+    background-color: $main-bgc;
+    color: $clr1;
 }
 
 button {

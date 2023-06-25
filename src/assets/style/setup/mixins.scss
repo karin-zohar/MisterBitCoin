@@ -43,6 +43,23 @@
 
     &:hover {
       background-color: $color;
-      color: $light-bgc;
+      color: $main-bgc;
     }
+}
+
+// containers 
+
+@mixin box {
+  background-color: $light-bgc;
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        border: 2px solid $clr3;
+
+        h2 {
+            margin-bottom: 0.5rem;
+        }
+        p {
+            line-height:1.3em;
+        }
 }

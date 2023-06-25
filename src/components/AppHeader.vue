@@ -1,22 +1,24 @@
 <script>
 import { RouterLink, RouterView } from "vue-router"
-import {userService} from '../services/user.service'
+import { userService } from "../services/user.service"
+import { bitcoinService } from "../services/bitcoin.service"
 import Logo from "./Logo.vue"
 
 export default {
   data() {
     return {
       user: userService.getUser(),
+      bitcoinRate: "loading...",
     }
   },
   methods: {},
   components: {
     Logo,
   },
-  created() {
-    
-  }
-};
+  async created() {
+    this.bitcoinRate = (await bitcoinService.getRate()) || "loading..."
+  },
+}
 </script>
 
 <template>
@@ -29,9 +31,15 @@ export default {
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/contact">Contacts</RouterLink>
       </nav>
+      <div class="bitcoin-rate">
+        <span class="bold">exchange rate</span><span class="light">{{ this.bitcoinRate }}</span>
+      </div>
       <div class="user-info">
         <div class="logged-in" v-if="user">
-        <div class="user-img" :style="{ backgroundImage: `url(${user.imgUrl})` }" ></div>
+          <div
+            class="user-img"
+            :style="{ backgroundImage: `url(${user.imgUrl})` }"
+          ></div>
         </div>
         <div class="logged-out" v-else>
           <button class="signup-btn">Sign up</button>
@@ -49,6 +57,7 @@ export default {
 
 .app-header {
   padding-block: 1rem;
+  margin-block-end: 1em;
   .app-header-content {
     display: grid;
     grid-template-rows: 1fr;
@@ -74,17 +83,17 @@ export default {
         font-family: Bellota-bold;
         font-size: 1.1rem;
         color: $dark-accent;
-        
+
         &::before {
-          content: '';
+          content: "";
           position: absolute;
-          background-image: radial-gradient(rgba($accent, 0.2), transparent) ;
+          background-image: radial-gradient(rgba($accent, 0.2), transparent);
           height: 1.3em;
           padding-inline: 0.2em;
           width: 3em;
           scale: 0;
           transition: 0.2s;
-          
+
           // margin-block: 1.3em;
         }
 
@@ -96,6 +105,18 @@ export default {
           color: $accent;
         }
       }
+    }
+
+    .bitcoin-rate {
+      color: $clr2;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      background-color: rgba($accent, 0.2);
+      width: max-content;
+      border-radius: 4px;
+      padding: 0.5em;
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px;
     }
 
     .user-info {

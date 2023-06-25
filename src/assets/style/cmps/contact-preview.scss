@@ -1,0 +1,15 @@
+.contact-preview {
+    @include box;
+    h4 {
+        margin-bottom: 0.5rem;
+    }
+    .actions {
+        margin-block-start: 0.5rem;
+        button {
+            @include button-reset;
+            @include btn-1($clr3);
+            color: $clr3;
+            margin-inline-end: 1em;
+        }
+    }
+}
