@@ -1,0 +1,16 @@
+.logo {
+    position: relative;
+    color: $dark-accent;
+    font-family: Bellota-bold;
+    font-weight: 900;
+    font-size: 1.4rem;
+    font-style: oblique;
+    align-self: end;
+    width: max-content;
+    span {
+        position: relative;
+        font-size: 2rem;
+        top: 0.55em;
+        right: 0.4em;
+    }
+}

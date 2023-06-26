@@ -19,7 +19,6 @@ import {eventBus } from "../services/eventBus.service"
 export default {
   data() {
     return {
-      contacts: null,
       filterBy: {},
     };
   },
@@ -43,10 +42,6 @@ export default {
         console.log(err)
       }
 
-      // const newContactsArray = await contactService.deleteContact(contactId);
-      // this.contacts = [...newContactsArray];
-      // console.log("msg:", msg);
-
     },
   },
   computed: {
@@ -54,10 +49,10 @@ export default {
       const regex = new RegExp(this.filterBy.txt, "i");
       return this.contacts.filter((contact) => regex.test(contact.name));
     },
+    contacts() { return this.$store.getters.contacts }
   },
   async created() {
     this.$store.dispatch({ type: "loadContacts" });
-    this.contacts = await contactService.getContacts();
   },
   components: {
     ContactList,

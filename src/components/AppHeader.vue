@@ -15,6 +15,14 @@ export default {
   components: {
     Logo,
   },
+  computed:{
+
+    isHomePage() {
+      console.log('this.$route: ', this.$route)
+      return (this.$route.path === '/') ? false : true
+    }
+  },
+
   async created() {
     this.bitcoinRate = (await bitcoinService.getRate()) || "loading..."
   },
@@ -24,14 +32,15 @@ export default {
 <template>
   <header class="app-header main-layout full">
     <div class="app-header-content">
-      <RouterLink to="/"><Logo /></RouterLink>
+      <RouterLink to="/" class="logo-wrapper"><Logo /></RouterLink>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/contact">Contacts</RouterLink>
+        <RouterLink to="/statistics">Statistics</RouterLink>
       </nav>
-      <div class="bitcoin-rate">
+      <div v-if="isHomePage" class="bitcoin-rate">
         <span class="bold">exchange rate</span><span class="light">{{ this.bitcoinRate }}</span>
       </div>
       <div class="user-info">
@@ -58,16 +67,23 @@ export default {
 .app-header {
   padding-block: 1rem;
   margin-block-end: 1em;
+  z-index: 10;
   .app-header-content {
     display: grid;
     grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
     width: 100%;
+    height: max-content;
     align-items: center;
 
     > * {
       grid-row: 1;
+      grid-column: 1;
     }
 
+    .logo-wrapper {
+      align-self: start;
+    }
     .logo {
       grid-row: 1;
       justify-self: start;
@@ -79,26 +95,16 @@ export default {
       width: max-content;
 
       a {
-        margin-inline-end: 1em;
         font-family: Bellota-bold;
         font-size: 1.1rem;
         color: $dark-accent;
+        &:not(:last-of-type) {
+          margin-inline-end: 1em;
 
-        &::before {
-          content: "";
-          position: absolute;
-          background-image: radial-gradient(rgba($accent, 0.2), transparent);
-          height: 1.3em;
-          padding-inline: 0.2em;
-          width: 3em;
-          scale: 0;
-          transition: 0.2s;
-
-          // margin-block: 1.3em;
         }
 
-        &.router-link-active::before {
-          scale: 1;
+        &.router-link-active {
+          color: $accent;
         }
 
         &:hover {
@@ -108,15 +114,15 @@ export default {
     }
 
     .bitcoin-rate {
-      color: $clr2;
+      color: $dark-accent;
       display: flex;
       flex-direction: column;
       text-align: center;
-      background-color: rgba($accent, 0.2);
       width: max-content;
       border-radius: 4px;
+      justify-self: flex-end;
+      margin-inline-end: 100px;
       padding: 0.5em;
-      box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 4px;
     }
 
     .user-info {

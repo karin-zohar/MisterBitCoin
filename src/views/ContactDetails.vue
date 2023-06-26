@@ -1,8 +1,17 @@
 <template>
     <section class="contact-details">
-        
+      <div class="profile-img">
+        <img :src="imgUrl" alt="">
+      </div>
+      <h4>{{ contact.name }}</h4>
+    <p>
+      Email: <span class="light">{{ contact.email }}</span>
+    </p>
+    <p>
+      Phone: <span class="light">{{ contact.phone }}</span>
+    </p>
     </section>
-    <pre>{{ contact }}</pre>
+    
 </template>
 
 <script>
@@ -17,7 +26,11 @@ export default {
     const contactId = this.$route.params.id;
     this.contact = await contactService.getContactById(contactId);
   },
-  components: {},
+  computed: {
+    imgUrl() {
+      return `https://xsgames.co/randomusers/avatar.php?g=${this.contact.gender}`
+    }
+  }
 };
 </script>
 

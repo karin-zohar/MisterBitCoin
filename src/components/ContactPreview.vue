@@ -13,14 +13,15 @@
     </p>
     <transition name="actions">
       <div class="actions" :class="isShown">
-        <button 
-        class="delete-btn"
-        @click.stop="onRemoveContact(contact._id)"
-        >
+        <button class="delete-btn" @click.stop="onRemoveContact(contact._id)">
           Delete
         </button>
-        <button class="details-btn"
-        @click.stop="navigateToContact(contact._id)">Details</button>
+        <button
+          class="details-btn"
+          @click.stop="navigateToContact(contact._id)"
+        >
+          Details
+        </button>
       </div>
     </transition>
   </article>
@@ -39,9 +40,7 @@ export default {
     },
   },
 
-  emits: ['remove']
-  ,
-
+  emits: ["remove"],
   methods: {
     mouseover() {
       this.isHover = true;
@@ -50,10 +49,11 @@ export default {
       this.isHover = false;
     },
     onRemoveContact(contactId) {
-      console.log('onRemoveContact: ', contactId)
+      console.log("onRemoveContact: ", contactId);
       this.$emit("remove", contactId);
     },
     navigateToContact(id) {
+      console.log("id: ", id);
       this.$router.push(`/contact/${id}`);
     },
   },
