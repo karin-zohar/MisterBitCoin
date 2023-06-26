@@ -13,8 +13,12 @@
 
 // pages 
 @import 'pages/home-page';
+@import 'pages/contact-details';
+@import 'pages/contact-index';
+@import 'pages/about-page';
 
 // cmps
 @import 'cmps/logo.scss';
 @import 'cmps/contact-list';
 @import 'cmps/contact-preview';
+@import 'cmps/contact-filter';

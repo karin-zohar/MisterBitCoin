@@ -1,5 +1,10 @@
 .contact-preview {
     @include box;
+    border: 2px solid transparent;
+
+    &:hover {
+        border-color: $accent;
+    }
     h4 {
         margin-bottom: 0.5rem;
     }

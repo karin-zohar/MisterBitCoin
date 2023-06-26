@@ -1,0 +1,18 @@
+.contact-details {
+    width: max-content;
+    margin: 100px auto;
+
+    .profile-img {
+        @include profile-img(220px);
+        margin: auto;
+    }
+    .contact-text {
+        @include paragraph-format;
+        text-align: center;
+        color: $dark-accent;
+
+        h4 {
+            color: $dark-accent;
+        }
+    }
+}

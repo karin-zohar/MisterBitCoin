@@ -36,6 +36,7 @@
 
 @mixin btn-1($color) {
   border: 2px solid $color;
+  color: $color;
   padding-inline: 0.6em;
   padding-block: 0.3em;
   border-radius: 2em;
@@ -68,4 +69,17 @@
   p {
     line-height: 1.3em;
   }
+}
+
+//profile-img 
+
+@mixin profile-img($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: lightgray;
+  background-size: $size;
+  background-position: cover;
+  background-repeat: no-repeat;
+  border: 2px solid $dark-accent;
 }

@@ -1,0 +1,17 @@
+.contact-filter {
+    input {
+        width: 100%;
+        border: 2px solid $dark-accent;
+        padding: 1em;
+        border-radius: 4px;
+        background-color: transparent;
+        color: $dark-accent;
+        font-family: Noto-regular;
+        font-size: 1.2em;
+        margin-block: 1em;
+        outline: none;
+        &:focus {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+    }
+}

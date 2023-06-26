@@ -66,5 +66,13 @@ button {
 
 footer {
     color: $dark-accent;
-    text-align: center;
+    .footer-content {
+        display: flex;
+        p {
+            text-align: center;
+            align-self: end;
+            justify-self: center;
+            width: max-content;
+        }
+    }
 }

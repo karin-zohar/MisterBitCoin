@@ -130,14 +130,7 @@ export default {
 
       .logged-in {
         .user-img {
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          background-color: lightgray;
-          background-size: 48px;
-          background-position: cover;
-          background-repeat: no-repeat;
-          border: 2px solid $dark-accent;
+          @include profile-img(48px);
           cursor: pointer;
           transition: 0.4s;
           &:hover {

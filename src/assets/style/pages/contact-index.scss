@@ -1,0 +1,9 @@
+.contact-index {
+    .add-contact-btn {
+        @include button-reset;
+        @include btn-1($accent);
+        &:hover {
+            color: $clr1;
+        }
+    }
+}

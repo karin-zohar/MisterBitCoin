@@ -1,17 +1,20 @@
 <template>
-    <section class="contact-details">
-      <div class="profile-img">
-        <img :src="imgUrl" alt="">
-      </div>
+  <section class="contact-details">
+    <div class="profile-img"
+    :style="{ backgroundImage: `url(${imgUrl})` }"
+    >
+    </div>
+
+    <div class="contact-text">
       <h4>{{ contact.name }}</h4>
-    <p>
-      Email: <span class="light">{{ contact.email }}</span>
-    </p>
-    <p>
-      Phone: <span class="light">{{ contact.phone }}</span>
-    </p>
-    </section>
-    
+      <p>
+        Email: <span class="light">{{ contact.email }}</span>
+      </p>
+      <p>
+        Phone: <span class="light">{{ contact.phone }}</span>
+      </p>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -28,9 +31,9 @@ export default {
   },
   computed: {
     imgUrl() {
-      return `https://xsgames.co/randomusers/avatar.php?g=${this.contact.gender}`
-    }
-  }
+      return `https://xsgames.co/randomusers/avatar.php?g=${this.contact.gender}`;
+    },
+  },
 };
 </script>
 
