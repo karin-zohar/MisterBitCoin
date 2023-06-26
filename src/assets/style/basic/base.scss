@@ -2,15 +2,25 @@
 
 * {
     box-sizing: border-box;
+
+    &::selection {
+        background-color: rgba($accent, 0.2);
+    }
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     padding: 0;
     margin: 0;
     color: $clr3;
 }
 
-ul, li {
+ul,
+li {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -20,7 +30,7 @@ a {
     text-decoration: none;
     color: inherit;
 }
- 
+
 p {
     margin: 0;
     padding: 0;
@@ -28,13 +38,16 @@ p {
 
 //design 
 
-html, body {
+html,
+body {
     font-size: 16px;
     font-family: Noto-regular;
     background-color: $main-bgc;
     color: $clr1;
+    // background-repeat: repeat-y;
 }
 
 button {
     cursor: pointer;
 }
+

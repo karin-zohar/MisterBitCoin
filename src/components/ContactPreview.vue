@@ -13,7 +13,12 @@
     </p>
     <transition name="actions">
       <div class="actions" :class="isShown">
-        <button class="delete-btn">Delete</button>
+        <button 
+        class="delete-btn"
+        @click.stop="onRemoveContact(contact._id)"
+        >
+          Delete
+        </button>
         <button class="details-btn">Details</button>
       </div>
     </transition>
@@ -25,19 +30,30 @@ export default {
   data() {
     return {
       isHover: false,
-    }
+    };
   },
   computed: {
     isShown() {
-        return (this.isHover) ? 'show' : ''
-    }
+      return this.isHover ? "show" : "";
+    },
   },
+
+  emits: ['remove']
+  ,
+
   methods: {
     mouseover() {
       this.isHover = true;
     },
     mouseleave() {
       this.isHover = false;
+    },
+    onRemoveContact(contactId) {
+      console.log('onRemoveContact: ', contactId)
+      this.$emit("remove", contactId);
+    },
+    navigateToContact(id) {
+      this.$router.push(`/contact/${id}`);
     },
   },
 
@@ -49,7 +65,7 @@ export default {
 
 <style lang="scss">
 .contact-preview {
-    height: max-content;
+  height: max-content;
   .actions {
     // background-color: red;
     transform-origin: top;
@@ -59,9 +75,8 @@ export default {
     transition: height 1s ease;
 
     &.show {
-        height: 40px;
+      height: 40px;
     }
-
   }
 }
 </style>

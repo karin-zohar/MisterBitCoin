@@ -8,9 +8,9 @@ export default {
         <div class="footer-content">
             <p>Mister BitCoin.</p>
         </div>
+
     </footer>
 </template>
 
 <style lang="scss">
-
 </style>
