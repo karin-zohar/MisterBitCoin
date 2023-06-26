@@ -19,7 +19,8 @@
         >
           Delete
         </button>
-        <button class="details-btn">Details</button>
+        <button class="details-btn"
+        @click.stop="navigateToContact(contact._id)">Details</button>
       </div>
     </transition>
   </article>
