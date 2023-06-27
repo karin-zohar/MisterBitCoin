@@ -18,7 +18,6 @@ export default {
   computed:{
 
     isHomePage() {
-      console.log('this.$route: ', this.$route)
       return (this.$route.path === '/') ? false : true
     }
   },

@@ -34,7 +34,16 @@ export default {
     chartOptions: {
       type: Object,
       default: () => {},
+      responsive: true,
+      scales: {
+        y: {
+          ticks: { color: "#fff" },
+        },
+        x: {
+          ticks: { color: "#fff" },
+        },
+      },
     },
   },
-};
+}
 </script>

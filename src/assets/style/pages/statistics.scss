@@ -1,0 +1,11 @@
+.statistics {
+    nav {
+        a {
+            color: $dark-accent;
+
+            &:hover {
+                color: $accent;
+            }
+        }
+    }
+}
