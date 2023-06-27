@@ -1,0 +1,105 @@
+.app-header {
+    padding-block: 1rem;
+    margin-block-end: 1em;
+    z-index: 10;
+    .app-header-content {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+      width: 100%;
+      height: max-content;
+      align-items: center;
+  
+      > * {
+        grid-row: 1;
+        grid-column: 1;
+      }
+  
+      .logo-wrapper {
+        align-self: start;
+      }
+      .logo {
+        grid-row: 1;
+        justify-self: start;
+        cursor: pointer;
+        margin-inline-end: 2em;
+        @include for-normal-layout {
+            margin: 0;
+        }
+      }
+      nav {
+        display: flex;
+        grid-row: 1;
+        justify-self: center;
+        width: max-content;
+        flex-direction: column;
+        padding-inline-start: 5em;
+        @include for-normal-layout {
+          flex-direction: row;
+          margin: 0;
+          padding: 0;
+        }
+  
+        a {
+          font-family: Bellota-bold;
+          font-size: 1.1rem;
+          color: $dark-accent;
+          &:not(:last-of-type) {
+            margin-inline-end: 1em;
+  
+          }
+  
+          &.router-link-active {
+            color: $accent;
+          }
+  
+          &:hover {
+            color: $accent;
+          }
+        }
+      }
+  
+      .bitcoin-rate {
+        color: $dark-accent;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: max-content;
+        border-radius: 4px;
+        justify-self: flex-end;
+        margin-inline-end: 100px;
+        padding: 0.5em;
+      }
+  
+      .user-info {
+        justify-self: end;
+  
+        .logged-in {
+          .user-img {
+            @include profile-img(48px);
+            cursor: pointer;
+            transition: 0.4s;
+            &:hover {
+              border-color: $accent;
+            }
+          }
+        }
+  
+        .logged-out {
+          button {
+            @include button-reset;
+            color: $dark-accent;
+            font-size: 1.1rem;
+            font-family: Bellota-bold;
+          }
+          .signup-btn {
+            margin-inline-end: 1em;
+          }
+  
+          .login-btn {
+            @include btn-1($dark-accent);
+          }
+        }
+      }
+    }
+  }
