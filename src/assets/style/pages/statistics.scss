@@ -6,6 +6,10 @@
         a {
             color: $clr3;
 
+            &.router-link-active {
+                font-family: Noto-bold;
+            }
+
             &:hover {
                 color: $accent;
             }

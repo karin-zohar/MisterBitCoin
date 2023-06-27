@@ -19,6 +19,9 @@ export default {
 
     isHomePage() {
       return (this.$route.path === '/') ? false : true
+    },
+    isMobile() {
+      return (window.innerWidth < 600) ? false : true
     }
   },
 
@@ -37,9 +40,9 @@ export default {
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/contact">Contacts</RouterLink>
-        <RouterLink to="/statistics">Statistics</RouterLink>
+        <RouterLink to="/statistics/price-history">Statistics</RouterLink>
       </nav>
-      <div v-if="isHomePage" class="bitcoin-rate">
+      <div v-if="isHomePage || !isMobile" class="bitcoin-rate">
         <span class="bold">exchange rate</span><span class="light">{{ this.bitcoinRate }}</span>
       </div>
       <div class="user-info">
@@ -92,6 +95,10 @@ export default {
       grid-row: 1;
       justify-self: center;
       width: max-content;
+      @include for-normal-layout {
+        flex-direction: row;
+      }
+      flex-direction: column;
 
       a {
         font-family: Bellota-bold;
