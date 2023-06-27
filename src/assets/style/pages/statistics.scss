@@ -1,7 +1,10 @@
 .statistics {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 4px;
     nav {
         a {
-            color: $dark-accent;
+            color: $clr3;
 
             &:hover {
                 color: $accent;
