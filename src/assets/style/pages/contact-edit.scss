@@ -1,0 +1,32 @@
+.contact-edit {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: $dark-accent;
+
+    label {
+        margin-block-end: 1em;
+        input {
+            width: 100%;
+            padding: 0.5em;
+            border: 2px transparent solid;
+            border-radius: 4px;
+            outline: none;
+            &:focus {
+                border-color: $accent;
+            }
+        }
+      
+    }
+
+    button {
+        @include button-reset;
+        @include btn-1($accent);
+        width: max-content;
+        margin-block-start: 1em;
+        align-self: end;
+        &:hover {
+            color: $clr1;
+        }
+    }
+}

@@ -16,12 +16,12 @@
         <button class="delete-btn" @click.stop="onRemoveContact(contact._id)">
           Delete
         </button>
-        <button
-          class="details-btn"
-          @click.stop="navigateToContact(contact._id)"
-        >
+        <RouterLink :to="`/contact/edit/${contact._id}`">
+          Edit
+        </RouterLink>
+        <RouterLink :to="`/contact/${contact._id}`">
           Details
-        </button>
+        </RouterLink>
       </div>
     </transition>
   </article>
@@ -68,12 +68,11 @@ export default {
 .contact-preview {
   height: max-content;
   .actions {
-    // background-color: red;
     transform-origin: top;
     width: max-content;
     overflow: hidden;
     height: 0px;
-    transition: height 1s ease;
+    transition: height .4s ease;
 
     &.show {
       height: 40px;

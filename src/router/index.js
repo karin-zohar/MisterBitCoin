@@ -6,7 +6,7 @@ import ContactDetails from '../views/ContactDetails.vue'
 import Statistics from '../views/Statistics.vue'
 import PriceHistoryChart from '../components/PriceHistoryChart.vue'
 import AvgBlockSizeChart from '../components/AvgBlockSizeChart.vue'
-
+import ContactEdit from '../views/ContactEdit.vue'
 const routerOptions = {
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
@@ -32,6 +32,11 @@ const routerOptions = {
       path: '/contact/:id',
       name: 'details',
       component: ContactDetails,
+    },
+    {
+      path: '/contact/edit/:id?',
+      name: 'edit',
+      component: ContactEdit,
     },
     {
       path: '/statistics',
